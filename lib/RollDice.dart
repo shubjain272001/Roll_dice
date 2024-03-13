@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'dart:math';
 
 class RollDice extends StatefulWidget {
  RollDice({super.key});
@@ -13,11 +13,12 @@ class RollDice extends StatefulWidget {
 class _RollDiceState extends State<RollDice> {
   @override
 
-var assestImageChange ='assets/images/dice-4.png';
+var CurrentDiceRoll =2;
 
 void rollDice(){
   setState(() {
-    assestImageChange ='assets/images/dice-2.png';
+    CurrentDiceRoll =Random().nextInt(6) +1;
+    
   });
   
 }
@@ -26,7 +27,7 @@ void rollDice(){
     return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(assestImageChange, width: 200),
+            Image.asset('assets/images/dice-$CurrentDiceRoll.png', width: 200),
             TextButton(
               onPressed: rollDice,
               style: TextButton.styleFrom(
